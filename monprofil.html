@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Ingénieur Réseaux | Profil Professionnel</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f0f4f9;
+            color: #1e2f3e;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* ===== STRUCTURE EXACTE COMME DANS L'IMAGE ===== */
+        /* Carte principale */
+        .profile-card {
+            background: #ffffff;
+            border-radius: 1.8rem;
+            padding: 2rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 28px -8px rgba(0, 0, 0, 0.06);
+            border: 1px solid #e6edf2;
+        }
+
+        /* Ligne Photo + description brève (côte à côte) */
+        .photo-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .photo-left {
+            flex-shrink: 0;
+        }
+
+        .photo-frame {
+            width: 130px;
+            height: 130px;
+            background: #eef3f8;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 12px 22px -10px rgba(0, 0, 0, 0.12);
+            border: 3px solid white;
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .brief-right {
+            flex: 1;
+        }
+
+        .brief-right h2 {
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: #1a4f6e;
+            margin-bottom: 0.25rem;
+        }
+
+        .status-line {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #2c7aa0;
+            background: #eaf2f8;
+            display: inline-block;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            margin-bottom: 0.8rem;
+        }
+
+        .desc-brief {
+            font-size: 0.95rem;
+            color: #2c4d66;
+            line-height: 1.5;
+            background: #f9fdfe;
+            padding: 0.8rem 1rem;
+            border-radius: 1rem;
+            border-left: 3px solid #2c7aa0;
+        }
+
+        /* Séparateur visuel */
+        .section-sep {
+            margin: 1.8rem 0 1rem 0;
+            font-weight: 600;
+            font-size: 1.3rem;
+            color: #1a4f6e;
+            border-left: 4px solid #2c7aa0;
+            padding-left: 0.8rem;
+        }
+
+        /* Liste des formations comme dans l'image */
+        .formation-list {
+            margin: 1.2rem 0 1rem 0;
+        }
+
+        .formation-block {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #e9eff4;
+            padding-bottom: 1rem;
+        }
+
+        .formation-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #1e4a6e;
+            margin-bottom: 0.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .formation-title i {
+            width: 28px;
+            color: #2c7aa0;
+            font-size: 1.2rem;
+        }
+
+        .formation-desc {
+            font-size: 0.9rem;
+            color: #3e5f78;
+            line-height: 1.45;
+            margin-left: 2.2rem;
+        }
+
+        /* Formation satellite supplémentaire (une seule) */
+        .satellite-block {
+            background: #f8fcfd;
+            border-radius: 1rem;
+            padding: 1rem 1.2rem;
+            margin: 1rem 0 1.5rem 0;
+            border: 1px solid #d4e2ec;
+        }
+
+        /* Section Me contacter */
+        .contact-box {
+            background: #ffffff;
+            border-radius: 1.5rem;
+            padding: 1.6rem 2rem;
+            margin-top: 1.5rem;
+            border: 1px solid #e6edf2;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.02);
+        }
+
+        .contact-paragraph {
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            color: #1f4a66;
+            font-weight: 500;
+        }
+
+        .contact-coords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin: 0.8rem 0 0.5rem;
+        }
+
+        .coord-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #f4fafd;
+            padding: 0.5rem 1.1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: #1f5680;
+            text-decoration: none;
+            font-weight: 500;
+            border: 1px solid #dbeaf2;
+            transition: 0.2s;
+        }
+
+        .coord-item i {
+            font-size: 1rem;
+            color: #2c7aa0;
+        }
+
+        .coord-item:hover {
+            background: #e9f2f8;
+            border-color: #bcd2e2;
+        }
+
+        hr {
+            margin: 1rem 0;
+            border: none;
+            height: 1px;
+            background: #e2ebf0;
+        }
+
+        .small-note {
+            font-size: 0.7rem;
+            text-align: center;
+            color: #6f92ab;
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 680px) {
+            .container {
+                padding: 1rem;
+            }
+            .photo-row {
+                flex-direction: column;
+                text-align: center;
+            }
+            .brief-right {
+                text-align: center;
+            }
+            .desc-brief {
+                text-align: left;
+            }
+            .formation-desc {
+                margin-left: 0;
+            }
+            .formation-title {
+                flex-wrap: wrap;
+            }
+            .contact-coords {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- CARTE PRINCIPALE : Photo + description brève (exactement comme sur l'image) -->
+    <div class="profile-card">
+        <div class="photo-row">
+            <!-- Photo à gauche -->
+            <div class="photo-left">
+                <div class="photo-frame">
+                    <!-- Photo de profil (remplaçable par votre propre image) -->
+                    <img src="image.png" alt="Photo de profil ingénieur">
+                    <!-- Pour modifier : changez l'URL par votre propre chemin d'image -->
+                </div>
+            </div>
+            <!-- Description brève à côté -->
+            <div class="brief-right">
+                <h2>Ahmat Ali Al-ikhedir</h2>
+                <div class="status-line">
+                    <i class="fas fa-microchip"></i> Ingénieur réseau & télécoms en cours
+                </div>
+                <div class="desc-brief">
+                    Spécialiste en infrastructures critiques dans le futur, connectivité haut débit et solutions innovantes. 
+                    Expert en architectures Cisco, développement d'applications web/mobile, sécurité des systèmes d'information 
+                    et cartographie SIG. Passionné par les technologies émergentes et la résilience des réseaux et satellite.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION FORMATIONS (exactement comme dans l'image : réseau/cisco, wifi zone, dev web/mobile, cybersécurité, cartographie) -->
+    <div class="section-sep">
+        <i class="fas fa-graduation-cap" style="margin-right: 8px;"></i> Formation
+    </div>
+    <div class="formation-list">
+        <!-- Réseau/Cisco -->
+        <div class="formation-block">
+            <div class="formation-title">
+                <i class="fas fa-network-wired"></i>
+                <span>Réseau / Cisco</span>
+            </div>
+            <div class="formation-desc">
+                Conception et administration d'infrastructures Cisco (routeurs, switches, firewalls). Maîtrise des protocoles de routage (OSPF, BGP, EIGRP), segmentation VLAN, haute disponibilité, SD-WAN et sécurité réseau avancée.
+            </div>
+        </div>
+        <!-- WiFi zone -->
+        <div class="formation-block">
+            <div class="formation-title">
+                <i class="fas fa-wifi"></i>
+                <span>WiFi zone</span>
+            </div>
+            <div class="formation-desc">
+                Déploiement et optimisation de zones WiFi professionnelles (802.11ax), architectures mesh, contrôleurs sans fil, sécurité WPA3, gestion des passerelles captives et solutions hotspot pour entreprises et espaces publics.
+            </div>
+        </div>
+        <!-- Développement web / mobile -->
+        <div class="formation-block">
+            <div class="formation-title">
+                <i class="fas fa-code"></i>
+                <span>Développement web / mobile</span>
+            </div>
+            <div class="formation-desc">
+                Création d'applications web réactives (React, Node.js) et d'applications mobiles cross-platform (Flutter). Conception d'outils de supervision réseau, tableaux de bord interactifs et interfaces utilisateur dédiées à l'infrastructure IT.
+            </div>
+        </div>
+        <!-- Cybersécurité -->
+        <div class="formation-block">
+            <div class="formation-title">
+                <i class="fas fa-shield-alt"></i>
+                <span>Cybersécurité</span>
+            </div>
+            <div class="formation-desc">
+                Analyse de vulnérabilités, mise en place de politiques Zero Trust, cryptographie, détection d'intrusion (IDS/IPS), sécurité des réseaux d'entreprise et protection des infrastructures critiques dans le future.
+            </div>
+        </div>
+        <!-- Cartographie -->
+        <div class="formation-block">
+            <div class="formation-title">
+                <i class="fas fa-map-marked-alt"></i>
+                <span>Cartographie</span>
+            </div>
+            <div class="formation-desc">
+                Maîtrise des systèmes d'information géographique (QGIS, ArcGIS). Cartographie de couverture réseau (fibre, radio, satellite), analyse spatiale pour le déploiement d'infrastructures et visualisation de données géolocalisées.
+            </div>
+        </div>
+    </div>
+
+    <!-- Formation supplémentaire : UNE SEULE formation en lien avec la connexion par satellite -->
+    <div class="section-sep" style="margin-top: 0.5rem;">
+        <i class="fas fa-satellite-dish"></i> Formation satellite
+    </div>
+    <div class="satellite-block">
+        <div class="formation-title" style="margin-bottom: 0.3rem;">
+            <i class="fas fa-satellite"></i>
+            <span>Connectivité par satellite & systèmes hybrides dans le future</span>
+        </div>
+        <div class="formation-desc" style="margin-left: 2.2rem;">
+            Architecture et déploiement de solutions de communication par satellite : VSAT (Very Small Aperture Terminal), constellations LEO (Starlink, OneWeb) et systèmes GEO. 
+            Conception de liens satellitaires pour zones blanches, intégration hybride fibre-satellite, optimisation de la qualité de service (QoS), gestion de la latence, 
+            backhaul pour réseaux mobiles 4G/5G et résilience des infrastructures critiques. Compétences en dimensionnement de bande passante et sécurisation des liaisons.
+        </div>
+    </div>
+
+    <!-- SECTION ME CONTACTER (petit paragraphe + email, tel, link) -->
+    <div class="contact-box">
+        <div class="contact-paragraph">
+            <i class="fas fa-envelope-open-text" style="margin-right: 8px; color: #2c7aa0;"></i>
+            <strong>Discutons de vos projets !</strong> Que ce soit pour un audit réseau, un déploiement de site web, une infrastructure sécurisée ou un développement sur mesure, 
+            je suis à votre écoute. N'hésitez pas à me joindre directement.
+        </div>
+        <div class="contact-coords">
+            <a href="mailto:j.lefevre@ingenieur-reseaux.fr" class="coord-item">
+                <i class="fas fa-envelope"></i> alikhedir@gmail.com
+            </a>
+            <a href="tel:+2376123498" class="coord-item">
+                <i class="fas fa-phone-alt"></i> +237 6 12 34 98 
+            </a>
+            <a href="#" class="coord-item">
+                <i class="fab fa-linkedin"></i> linkedin.com/in/alikhedir-telco
+            </a>
+        </div>
+        <hr>
+        <div style="font-size: 0.8rem; display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; color: #45758e;">
+            <span><i class="fas fa-map-pin"></i> Cameroune / Ngaoundere / Univ de Ngaoundere</span>
+            <span><i class="fas fa-clock"></i> Disponible immédiatement</span>
+        </div>
+    </div>
+    <div class="small-note">
+        <i class="fas fa-satellite"></i> Ingénieur réseaux & télécoms – Solutions connectivité, sécurité & infrastructures critiques
+    </div>
+</div>
+</body>
+</html>
